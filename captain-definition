@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 2,
+  "dockerfileLines": [
+    "FROM node:latest",
+    "WORKDIR /usr/src/app",
+    "COPY prisma ./",
+    "COPY ./package*.json ./",
+    "ARG DATABASE_URL",
+    "ARG NEXTAUTH_SECRET",
+    "ARG NEXTAUTH_URL",
+    "ARG GOOGLE_CLIENT_ID",
+    "ARG GOOGLE_CLIENT_SECRET",
+    "RUN npm install && npm cache clean --force",
+    "COPY ./ ./",
+    "RUN npm run build",
+    "EXPOSE 80",
+    "CMD [ \"npm\", \"run\"  , \"start\"]"
+  ]
+}
