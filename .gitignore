@@ -1,1 +1,3 @@
 /.obsidian/
+#ignore .obsidian folder
+.obsidian/
